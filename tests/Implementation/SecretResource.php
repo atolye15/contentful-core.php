@@ -9,11 +9,11 @@
 
 declare(strict_types=1);
 
-namespace Contentful\Tests\Core\Implementation;
+namespace Atolye15\Tests\Core\Implementation;
 
-use Contentful\Core\Api\Link;
-use Contentful\Core\Resource\ResourceInterface;
-use Contentful\Core\Resource\SystemPropertiesInterface;
+use Atolye15\Core\Api\Link;
+use Atolye15\Core\Resource\ResourceInterface;
+use Atolye15\Core\Resource\SystemPropertiesInterface;
 
 class SecretResource implements ResourceInterface
 {

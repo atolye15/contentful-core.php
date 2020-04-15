@@ -9,11 +9,11 @@
 
 declare(strict_types=1);
 
-namespace Contentful\Tests\Core\Unit\Api;
+namespace Atolye15\Tests\Core\Unit\Api;
 
-use Contentful\Core\Api\Exception;
-use Contentful\Core\Api\Message;
-use Contentful\Tests\TestCase;
+use Atolye15\Core\Api\Exception;
+use Atolye15\Core\Api\Message;
+use Atolye15\Tests\TestCase;
 use GuzzleHttp\Exception\RequestException;
 use GuzzleHttp\Psr7\Request;
 use GuzzleHttp\Psr7\Response;

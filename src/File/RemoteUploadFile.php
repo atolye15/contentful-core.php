@@ -9,7 +9,7 @@
 
 declare(strict_types=1);
 
-namespace Contentful\Core\File;
+namespace Atolye15\Core\File;
 
 /**
  * RemoteUploadFile class.

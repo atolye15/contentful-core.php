@@ -9,10 +9,10 @@
 
 declare(strict_types=1);
 
-namespace Contentful\Tests\Core\Unit\Resource;
+namespace Atolye15\Tests\Core\Unit\Resource;
 
-use Contentful\Core\Resource\ArraySystemProperties;
-use Contentful\Tests\TestCase;
+use Atolye15\Core\Resource\ArraySystemProperties;
+use Atolye15\Tests\TestCase;
 
 class ArraySystemPropertiesTest extends TestCase
 {

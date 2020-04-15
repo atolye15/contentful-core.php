@@ -20,12 +20,12 @@
     "license": "MIT",
     "autoload": {
         "psr-4": {
-            "Contentful\\Core\\": "src"
+            "Atolye15\\Core\\": "src"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Contentful\\Tests\\Core\\": "tests"
+            "Atolye15\\Tests\\Core\\": "tests"
         },
         "files": [
             "scripts/TestCase.php"

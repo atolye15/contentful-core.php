@@ -9,9 +9,9 @@
 
 declare(strict_types=1);
 
-namespace Contentful\Tests\Core\Implementation;
+namespace Atolye15\Tests\Core\Implementation;
 
-use Contentful\Core\Api\BaseQuery;
+use Atolye15\Core\Api\BaseQuery;
 
 class Query extends BaseQuery
 {

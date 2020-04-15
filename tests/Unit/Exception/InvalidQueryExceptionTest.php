@@ -9,10 +9,10 @@
 
 declare(strict_types=1);
 
-namespace Contentful\Tests\Core\Unit\Exception;
+namespace Atolye15\Tests\Core\Unit\Exception;
 
-use Contentful\Core\Exception\InvalidQueryException;
-use Contentful\Tests\TestCase;
+use Atolye15\Core\Exception\InvalidQueryException;
+use Atolye15\Tests\TestCase;
 use GuzzleHttp\Exception\ClientException;
 use GuzzleHttp\Psr7\Request;
 use GuzzleHttp\Psr7\Response;

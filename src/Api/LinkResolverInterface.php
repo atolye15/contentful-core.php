@@ -9,9 +9,9 @@
 
 declare(strict_types=1);
 
-namespace Contentful\Core\Api;
+namespace Atolye15\Core\Api;
 
-use Contentful\Core\Resource\ResourceInterface;
+use Atolye15\Core\Resource\ResourceInterface;
 
 interface LinkResolverInterface
 {

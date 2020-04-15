@@ -9,16 +9,16 @@
 
 declare(strict_types=1);
 
-namespace Contentful\Tests\Core\Unit\Api;
+namespace Atolye15\Tests\Core\Unit\Api;
 
-use Contentful\Core\Exception\NotFoundException;
-use Contentful\Tests\Core\Implementation\Application;
-use Contentful\Tests\Core\Implementation\Client;
-use Contentful\Tests\Core\Implementation\ClientCustomException;
-use Contentful\Tests\Core\Implementation\Exception\BadRequestException;
-use Contentful\Tests\Core\Implementation\Integration;
-use Contentful\Tests\Core\Implementation\InvalidPackageNameClient;
-use Contentful\Tests\TestCase;
+use Atolye15\Core\Exception\NotFoundException;
+use Atolye15\Tests\Core\Implementation\Application;
+use Atolye15\Tests\Core\Implementation\Client;
+use Atolye15\Tests\Core\Implementation\ClientCustomException;
+use Atolye15\Tests\Core\Implementation\Exception\BadRequestException;
+use Atolye15\Tests\Core\Implementation\Integration;
+use Atolye15\Tests\Core\Implementation\InvalidPackageNameClient;
+use Atolye15\Tests\TestCase;
 use GuzzleHttp\Client as HttpClient;
 use GuzzleHttp\Exception\ClientException;
 use GuzzleHttp\Handler\CurlHandler;

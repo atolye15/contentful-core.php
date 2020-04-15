@@ -9,12 +9,12 @@
 
 declare(strict_types=1);
 
-namespace Contentful\Tests\Core\Unit\Resource;
+namespace Atolye15\Tests\Core\Unit\Resource;
 
-use Contentful\Tests\Core\Implementation\ResourceBuilder;
-use Contentful\Tests\Core\Implementation\SecretMapper;
-use Contentful\Tests\Core\Implementation\SecretResource;
-use Contentful\Tests\TestCase;
+use Atolye15\Tests\Core\Implementation\ResourceBuilder;
+use Atolye15\Tests\Core\Implementation\SecretMapper;
+use Atolye15\Tests\Core\Implementation\SecretResource;
+use Atolye15\Tests\TestCase;
 
 class BaseResourceBuilderTest extends TestCase
 {

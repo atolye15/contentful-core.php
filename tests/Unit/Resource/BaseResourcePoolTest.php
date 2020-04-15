@@ -9,10 +9,10 @@
 
 declare(strict_types=1);
 
-namespace Contentful\Tests\Core\Unit\Resource;
+namespace Atolye15\Tests\Core\Unit\Resource;
 
-use Contentful\Tests\Core\Implementation\ResourcePool;
-use Contentful\Tests\TestCase;
+use Atolye15\Tests\Core\Implementation\ResourcePool;
+use Atolye15\Tests\TestCase;
 
 class BaseResourcePoolTest extends TestCase
 {

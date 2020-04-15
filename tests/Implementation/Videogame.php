@@ -9,7 +9,7 @@
 
 declare(strict_types=1);
 
-namespace Contentful\Tests\Core\Implementation;
+namespace Atolye15\Tests\Core\Implementation;
 
 class Videogame
 {

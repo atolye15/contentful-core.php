@@ -9,10 +9,10 @@
 
 declare(strict_types=1);
 
-namespace Contentful\Core\ResourceBuilder;
+namespace Atolye15\Core\ResourceBuilder;
 
-use Contentful\Core\Resource\ResourceArray;
-use Contentful\Core\Resource\ResourceInterface;
+use Atolye15\Core\Resource\ResourceArray;
+use Atolye15\Core\Resource\ResourceInterface;
 
 /**
  * MapperInterface.

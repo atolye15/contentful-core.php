@@ -9,10 +9,10 @@
 
 declare(strict_types=1);
 
-namespace Contentful\Tests\Core\Implementation;
+namespace Atolye15\Tests\Core\Implementation;
 
-use Contentful\Core\Resource\BaseResourcePool;
-use Contentful\Core\Resource\ResourceInterface;
+use Atolye15\Core\Resource\BaseResourcePool;
+use Atolye15\Core\Resource\ResourceInterface;
 
 class ResourcePool extends BaseResourcePool
 {

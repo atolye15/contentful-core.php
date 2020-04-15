@@ -9,7 +9,7 @@
 
 declare(strict_types=1);
 
-namespace Contentful\Core\Api;
+namespace Atolye15\Core\Api;
 
 use GuzzleHttp\Psr7\Request;
 use GuzzleHttp\Psr7\Uri;

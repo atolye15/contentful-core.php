@@ -9,9 +9,9 @@
 
 declare(strict_types=1);
 
-namespace Contentful\Tests\Core\Implementation;
+namespace Atolye15\Tests\Core\Implementation;
 
-use Contentful\Core\Api\IntegrationInterface;
+use Atolye15\Core\Api\IntegrationInterface;
 
 class Integration implements IntegrationInterface
 {

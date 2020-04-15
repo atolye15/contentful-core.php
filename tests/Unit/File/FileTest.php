@@ -9,10 +9,10 @@
 
 declare(strict_types=1);
 
-namespace Contentful\Tests\Core\Unit\File;
+namespace Atolye15\Tests\Core\Unit\File;
 
-use Contentful\Core\File\File;
-use Contentful\Tests\TestCase;
+use Atolye15\Core\File\File;
+use Atolye15\Tests\TestCase;
 
 class FileTest extends TestCase
 {

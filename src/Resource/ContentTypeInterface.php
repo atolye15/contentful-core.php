@@ -9,7 +9,7 @@
 
 declare(strict_types=1);
 
-namespace Contentful\Core\Resource;
+namespace Atolye15\Core\Resource;
 
 interface ContentTypeInterface extends ResourceInterface
 {

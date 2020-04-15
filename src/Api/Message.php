@@ -9,7 +9,7 @@
 
 declare(strict_types=1);
 
-namespace Contentful\Core\Api;
+namespace Atolye15\Core\Api;
 
 use function GuzzleHttp\json_decode as guzzle_json_decode;
 use function GuzzleHttp\json_encode as guzzle_json_encode;

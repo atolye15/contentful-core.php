@@ -9,11 +9,11 @@
 
 declare(strict_types=1);
 
-namespace Contentful\Tests\Core\Unit\Exception;
+namespace Atolye15\Tests\Core\Unit\Exception;
 
-use Contentful\Core\Api\Requester;
-use Contentful\Core\Exception\InvalidResponseBodyException;
-use Contentful\Tests\TestCase;
+use Atolye15\Core\Api\Requester;
+use Atolye15\Core\Exception\InvalidResponseBodyException;
+use Atolye15\Tests\TestCase;
 use GuzzleHttp\Client as HttpClient;
 use GuzzleHttp\Exception\ClientException;
 use GuzzleHttp\Handler\CurlHandler;
