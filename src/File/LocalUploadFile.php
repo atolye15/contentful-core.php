@@ -9,9 +9,9 @@
 
 declare(strict_types=1);
 
-namespace Contentful\Core\File;
+namespace Atolye15\Core\File;
 
-use Contentful\Core\Api\Link;
+use Atolye15\Core\Api\Link;
 
 /**
  * LocalUploadFile class.
