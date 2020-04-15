@@ -9,7 +9,7 @@
 
 declare(strict_types=1);
 
-namespace Contentful\Core\Log;
+namespace Atolye15\Core\Log;
 
 use Psr\Log\LoggerInterface;
 

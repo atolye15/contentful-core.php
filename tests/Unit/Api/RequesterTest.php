@@ -9,10 +9,10 @@
 
 declare(strict_types=1);
 
-namespace Contentful\Tests\Core\Unit\Api;
+namespace Atolye15\Tests\Core\Unit\Api;
 
-use Contentful\Core\Api\Requester;
-use Contentful\Tests\TestCase;
+use Atolye15\Core\Api\Requester;
+use Atolye15\Tests\TestCase;
 use GuzzleHttp\Client as HttpClient;
 use GuzzleHttp\Handler\CurlHandler;
 use GuzzleHttp\HandlerStack;

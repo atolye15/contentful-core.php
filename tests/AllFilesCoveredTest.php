@@ -9,9 +9,9 @@
 
 declare(strict_types=1);
 
-namespace Contentful\Tests\Core;
+namespace Atolye15\Tests\Core;
 
-use Contentful\Tests\TestCase;
+use Atolye15\Tests\TestCase;
 use Symfony\Component\Finder\Finder;
 
 class AllFilesCoveredTest extends TestCase

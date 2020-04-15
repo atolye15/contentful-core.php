@@ -9,12 +9,12 @@
 
 declare(strict_types=1);
 
-namespace Contentful\Tests\Core\Unit\Resource;
+namespace Atolye15\Tests\Core\Unit\Resource;
 
-use Contentful\Core\Resource\ArraySystemProperties;
-use Contentful\Core\Resource\ResourceArray;
-use Contentful\Tests\Core\Implementation\Resource;
-use Contentful\Tests\TestCase;
+use Atolye15\Core\Resource\ArraySystemProperties;
+use Atolye15\Core\Resource\ResourceArray;
+use Atolye15\Tests\Core\Implementation\Resource;
+use Atolye15\Tests\TestCase;
 
 class ResourceArrayTest extends TestCase
 {

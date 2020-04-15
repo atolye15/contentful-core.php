@@ -9,11 +9,11 @@
 
 declare(strict_types=1);
 
-namespace Contentful\Tests\Core\Unit\Exception;
+namespace Atolye15\Tests\Core\Unit\Exception;
 
-use Contentful\Core\Api\RequestBuilder;
-use Contentful\Core\Api\UserAgentGenerator;
-use Contentful\Tests\TestCase;
+use Atolye15\Core\Api\RequestBuilder;
+use Atolye15\Core\Api\UserAgentGenerator;
+use Atolye15\Tests\TestCase;
 use GuzzleHttp\Psr7\Request;
 use Psr\Http\Message\RequestInterface;
 

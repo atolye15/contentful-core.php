@@ -9,9 +9,9 @@
 
 declare(strict_types=1);
 
-namespace Contentful\Core\Resource;
+namespace Atolye15\Core\Resource;
 
-use Contentful\Core\Api\Link;
+use Atolye15\Core\Api\Link;
 
 /**
  * ResourceInterface.

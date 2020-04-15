@@ -9,9 +9,9 @@
 
 declare(strict_types=1);
 
-namespace Contentful\Tests;
+namespace Atolye15\Tests;
 
-use Contentful\Core\Api\Link;
+use Atolye15\Core\Api\Link;
 use function GuzzleHttp\json_decode as guzzle_json_decode;
 use function GuzzleHttp\json_encode as guzzle_json_encode;
 use PHPUnit\Framework\TestCase as BaseTestCase;

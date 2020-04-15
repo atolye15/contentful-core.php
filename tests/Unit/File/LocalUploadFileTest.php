@@ -9,11 +9,11 @@
 
 declare(strict_types=1);
 
-namespace Contentful\Tests\Core\Unit\File;
+namespace Atolye15\Tests\Core\Unit\File;
 
-use Contentful\Core\Api\Link;
-use Contentful\Core\File\LocalUploadFile;
-use Contentful\Tests\TestCase;
+use Atolye15\Core\Api\Link;
+use Atolye15\Core\File\LocalUploadFile;
+use Atolye15\Tests\TestCase;
 
 class LocalUploadFileTest extends TestCase
 {

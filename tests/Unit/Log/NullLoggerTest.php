@@ -9,10 +9,10 @@
 
 declare(strict_types=1);
 
-namespace Contentful\Tests\Core\Unit\Log;
+namespace Atolye15\Tests\Core\Unit\Log;
 
-use Contentful\Core\Log\NullLogger;
-use Contentful\Tests\TestCase;
+use Atolye15\Core\Log\NullLogger;
+use Atolye15\Tests\TestCase;
 
 class NullLoggerTest extends TestCase
 {

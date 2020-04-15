@@ -9,10 +9,10 @@
 
 declare(strict_types=1);
 
-namespace Contentful\Tests\Core\Unit\Api;
+namespace Atolye15\Tests\Core\Unit\Api;
 
-use Contentful\Core\Api\DateTimeImmutable;
-use Contentful\Tests\TestCase;
+use Atolye15\Core\Api\DateTimeImmutable;
+use Atolye15\Tests\TestCase;
 use function GuzzleHttp\json_encode as guzzle_json_encode;
 
 class DateTimeImmutableTest extends TestCase

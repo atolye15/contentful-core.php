@@ -9,9 +9,9 @@
 
 declare(strict_types=1);
 
-namespace Contentful\Tests\Core\Implementation\Exception;
+namespace Atolye15\Tests\Core\Implementation\Exception;
 
-use Contentful\Core\Api\Exception;
+use Atolye15\Core\Api\Exception;
 
 class BadRequestException extends Exception
 {

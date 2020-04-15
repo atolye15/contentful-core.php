@@ -9,7 +9,7 @@
 
 declare(strict_types=1);
 
-namespace Contentful\Core\ResourceBuilder;
+namespace Atolye15\Core\ResourceBuilder;
 
 /**
  * Class ObjectHydrator.

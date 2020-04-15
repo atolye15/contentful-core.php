@@ -9,10 +9,10 @@
 
 declare(strict_types=1);
 
-namespace Contentful\Tests\Core\Implementation;
+namespace Atolye15\Tests\Core\Implementation;
 
-use Contentful\Core\Api\BaseClient;
-use Contentful\Core\Resource\ResourceInterface;
+use Atolye15\Core\Api\BaseClient;
+use Atolye15\Core\Resource\ResourceInterface;
 
 class Client extends BaseClient
 {

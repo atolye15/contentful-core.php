@@ -9,10 +9,10 @@
 
 declare(strict_types=1);
 
-namespace Contentful\Tests\Core\Implementation;
+namespace Atolye15\Tests\Core\Implementation;
 
-use Contentful\Core\ResourceBuilder\BaseResourceBuilder;
-use Contentful\Core\ResourceBuilder\MapperInterface;
+use Atolye15\Core\ResourceBuilder\BaseResourceBuilder;
+use Atolye15\Core\ResourceBuilder\MapperInterface;
 
 class ResourceBuilder extends BaseResourceBuilder
 {

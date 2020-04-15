@@ -9,12 +9,12 @@
 
 declare(strict_types=1);
 
-namespace Contentful\Tests\Core\Unit\Api;
+namespace Atolye15\Tests\Core\Unit\Api;
 
-use Contentful\Core\Api\Link;
-use Contentful\Tests\Core\Implementation\Entry;
-use Contentful\Tests\Core\Implementation\LinkResolver;
-use Contentful\Tests\TestCase;
+use Atolye15\Core\Api\Link;
+use Atolye15\Tests\Core\Implementation\Entry;
+use Atolye15\Tests\Core\Implementation\LinkResolver;
+use Atolye15\Tests\TestCase;
 
 class LinkResolverInterfaceTest extends TestCase
 {

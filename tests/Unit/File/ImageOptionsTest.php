@@ -9,10 +9,10 @@
 
 declare(strict_types=1);
 
-namespace Contentful\Tests\Core\Unit\File;
+namespace Atolye15\Tests\Core\Unit\File;
 
-use Contentful\Core\File\ImageOptions;
-use Contentful\Tests\TestCase;
+use Atolye15\Core\File\ImageOptions;
+use Atolye15\Tests\TestCase;
 
 class ImageOptionsTest extends TestCase
 {

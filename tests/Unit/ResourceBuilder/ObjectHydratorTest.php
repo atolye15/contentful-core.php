@@ -9,12 +9,12 @@
 
 declare(strict_types=1);
 
-namespace Contentful\Tests\Core\Unit\ResourceBuilder;
+namespace Atolye15\Tests\Core\Unit\ResourceBuilder;
 
-use Contentful\Core\ResourceBuilder\ObjectHydrator;
-use Contentful\Tests\Core\Implementation\Person;
-use Contentful\Tests\Core\Implementation\Videogame;
-use Contentful\Tests\TestCase;
+use Atolye15\Core\ResourceBuilder\ObjectHydrator;
+use Atolye15\Tests\Core\Implementation\Person;
+use Atolye15\Tests\Core\Implementation\Videogame;
+use Atolye15\Tests\TestCase;
 
 class ObjectHydratorTest extends TestCase
 {

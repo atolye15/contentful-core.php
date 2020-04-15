@@ -9,9 +9,9 @@
 
 declare(strict_types=1);
 
-namespace Contentful\Core\Exception;
+namespace Atolye15\Core\Exception;
 
-use Contentful\Core\Api\Exception;
+use Atolye15\Core\Api\Exception;
 
 /**
  * A NotFoundException indicates that the desired resource could not be found on the server.

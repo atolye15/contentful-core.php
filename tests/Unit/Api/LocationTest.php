@@ -9,10 +9,10 @@
 
 declare(strict_types=1);
 
-namespace Contentful\Tests\Core\Unit\Api;
+namespace Atolye15\Tests\Core\Unit\Api;
 
-use Contentful\Core\Api\Location;
-use Contentful\Tests\TestCase;
+use Atolye15\Core\Api\Location;
+use Atolye15\Tests\TestCase;
 
 class LocationTest extends TestCase
 {
