@@ -3,13 +3,13 @@
 /**
  * This file is part of the contentful/contentful-core package.
  *
- * @copyright 2015-2020 Contentful GmbH
+ * @copyright 2015-2018 Contentful GmbH
  * @license   MIT
  */
 
 declare(strict_types=1);
 
-namespace Atolye15\Core\File;
+namespace Contentful\Core\File;
 
 /**
  * ImageFile class.
@@ -28,6 +28,13 @@ class ImageFile extends File
 
     /**
      * ImageFile constructor.
+     *
+     * @param string $fileName
+     * @param string $contentType
+     * @param string $url
+     * @param int    $size
+     * @param int    $width
+     * @param int    $height
      */
     public function __construct(string $fileName, string $contentType, string $url, int $size, int $width, int $height)
     {
@@ -39,6 +46,8 @@ class ImageFile extends File
 
     /**
      * Returns the width of the image.
+     *
+     * @return int
      */
     public function getWidth(): int
     {
@@ -47,6 +56,8 @@ class ImageFile extends File
 
     /**
      * Returns the height of the image.
+     *
+     * @return int
      */
     public function getHeight(): int
     {
@@ -55,6 +66,8 @@ class ImageFile extends File
 
     /**
      * @param UrlOptionsInterface|null $options
+     *
+     * @return string
      */
     public function getUrl(UrlOptionsInterface $options = \null): string
     {

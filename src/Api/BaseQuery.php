@@ -3,13 +3,13 @@
 /**
  * This file is part of the contentful/contentful-core package.
  *
- * @copyright 2015-2020 Contentful GmbH
+ * @copyright 2015-2018 Contentful GmbH
  * @license   MIT
  */
 
 declare(strict_types=1);
 
-namespace Atolye15\Core\Api;
+namespace Contentful\Core\Api;
 
 /**
  * BaseQuery class.
@@ -126,6 +126,8 @@ abstract class BaseQuery
 
     /**
      * Returns the parameters to execute this query.
+     *
+     * @return array
      */
     public function getQueryData(): array
     {
@@ -134,7 +136,7 @@ abstract class BaseQuery
             'skip' => $this->skip,
             'content_type' => $this->contentType,
             'mimetype_group' => $this->mimeTypeGroup,
-            'order' => $this->orderConditions ? \implode(',', $this->orderConditions) : null,
+            'order' => $this->orderConditions ? \implode(',', $this->orderConditions) : \null,
             'select' => $this->select,
             'links_to_entry' => $this->linksToEntry,
             'links_to_asset' => $this->linksToAsset,
@@ -143,6 +145,8 @@ abstract class BaseQuery
 
     /**
      * The urlencoded query string for this query.
+     *
+     * @return string
      */
     public function getQueryString(): string
     {
@@ -158,10 +162,13 @@ abstract class BaseQuery
      *
      * @return $this
      */
-    public function setSkip(int $skip = null)
+    public function setSkip(int $skip = \null)
     {
-        if (null !== $skip && $skip < 0) {
-            throw new \RangeException(\sprintf('Skip value must be 0 or bigger, "%d" given.', $skip));
+        if (\null !== $skip && $skip < 0) {
+            throw new \RangeException(\sprintf(
+                'Skip value must be 0 or bigger, "%d" given.',
+                $skip
+            ));
         }
 
         $this->skip = $skip;
@@ -178,10 +185,13 @@ abstract class BaseQuery
      *
      * @return $this
      */
-    public function setLimit(int $limit = null)
+    public function setLimit(int $limit = \null)
     {
-        if (null !== $limit && ($limit < 1 || $limit > 1000)) {
-            throw new \RangeException(\sprintf('Limit value must be between 0 and 1000, "%d" given.', $limit));
+        if (\null !== $limit && ($limit < 1 || $limit > 1000)) {
+            throw new \RangeException(\sprintf(
+                'Limit value must be between 0 and 1000, "%d" given.',
+                $limit
+            ));
         }
 
         $this->limit = $limit;
@@ -195,9 +205,12 @@ abstract class BaseQuery
      * Note that when ordering Entries by fields you must set the content_type URI query parameter to the ID of
      * the Content Type you want to filter by. Can be called multiple times to order by multiple values.
      *
+     * @param string $field
+     * @param bool   $reverse
+     *
      * @return $this
      */
-    public function orderBy(string $field, bool $reverse = false)
+    public function orderBy(string $field, bool $reverse = \false)
     {
         if ($reverse) {
             $field = '-'.$field;
@@ -213,9 +226,11 @@ abstract class BaseQuery
      *
      * Only works when querying entries.
      *
+     * @param string|null $contentType
+     *
      * @return $this
      */
-    public function setContentType(string $contentType = null)
+    public function setContentType(string $contentType = \null)
     {
         $this->contentType = $contentType;
 
@@ -223,14 +238,20 @@ abstract class BaseQuery
     }
 
     /**
+     * @param string|null $group
+     *
      * @throws \InvalidArgumentException if $group is not a valid value
      *
      * @return $this
      */
-    public function setMimeTypeGroup(string $group = null)
+    public function setMimeTypeGroup(string $group = \null)
     {
-        if (null !== $group && !\in_array($group, self::$validGroups, true)) {
-            throw new \InvalidArgumentException(\sprintf('Unknown MIME-type group "%s" given. Expected "%s" or null.', $group, \implode(', ', self::$validGroups)));
+        if (\null !== $group && !\in_array($group, self::$validGroups, \true)) {
+            throw new \InvalidArgumentException(\sprintf(
+                'Unknown MIME-type group "%s" given. Expected "%s" or null.',
+                $group,
+                \implode(', ', self::$validGroups)
+            ));
         }
 
         $this->mimeTypeGroup = $group;
@@ -241,6 +262,7 @@ abstract class BaseQuery
     /**
      * Add a filter condition to this query.
      *
+     * @param string                                   $field
      * @param string|array|\DateTimeInterface|Location $value
      *
      * @throws \InvalidArgumentException If $operator is not one of the valid values
@@ -255,8 +277,12 @@ abstract class BaseQuery
         if (\preg_match('/(.+)\[([a-zA-Z]+)\]/', $field, $matches)) {
             $operator = \mb_strtolower($matches[2]);
 
-            if (!\in_array($operator, self::$validOperators, true)) {
-                throw new \InvalidArgumentException(\sprintf('Unknown operator "%s" given. Expected "%s" or no operator.', $operator, \implode(', ', self::$validOperators)));
+            if (!\in_array($operator, self::$validOperators, \true)) {
+                throw new \InvalidArgumentException(\sprintf(
+                    'Unknown operator "%s" given. Expected "%s" or no operator.',
+                    $operator,
+                    \implode(', ', self::$validOperators)
+                ));
             }
         }
 
@@ -300,6 +326,8 @@ abstract class BaseQuery
     /**
      * Filters for all entries that link to an entry.
      *
+     * @param string $entryId
+     *
      * @return $this
      */
     public function linksToEntry(string $entryId)
@@ -311,6 +339,8 @@ abstract class BaseQuery
 
     /**
      * Filters for all entries that link to an asset.
+     *
+     * @param string $assetId
      *
      * @return $this
      */

@@ -3,15 +3,15 @@
 /**
  * This file is part of the contentful/contentful-core package.
  *
- * @copyright 2015-2020 Contentful GmbH
+ * @copyright 2015-2018 Contentful GmbH
  * @license   MIT
  */
 
 declare(strict_types=1);
 
-namespace Atolye15\Core\Resource;
+namespace Contentful\Core\Resource;
 
-use Atolye15\Core\Api\Link;
+use Contentful\Core\Api\Link;
 
 /**
  * ResourceInterface.
@@ -30,18 +30,24 @@ interface ResourceInterface extends \JsonSerializable
 
     /**
      * Creates a Link representation of the current resource.
+     *
+     * @return Link
      */
     public function asLink(): Link;
 
     /**
      * Shortcut for retrieving the resource ID
      * from the system properties object.
+     *
+     * @return string
      */
     public function getId(): string;
 
     /**
      * Shortcut for retrieving the resource type
      * from the system properties object.
+     *
+     * @return string
      */
     public function getType(): string;
 }

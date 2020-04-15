@@ -3,13 +3,13 @@
 /**
  * This file is part of the contentful/contentful-core package.
  *
- * @copyright 2015-2020 Contentful GmbH
+ * @copyright 2015-2018 Contentful GmbH
  * @license   MIT
  */
 
 declare(strict_types=1);
 
-namespace Atolye15\Core\ResourceBuilder;
+namespace Contentful\Core\ResourceBuilder;
 
 /**
  * Class ObjectHydrator.
@@ -29,6 +29,7 @@ class ObjectHydrator
      * according to the keys defined in the $data parameter.
      *
      * @param string|object $target
+     * @param array         $data
      *
      * @return object
      */
@@ -49,6 +50,8 @@ class ObjectHydrator
 
     /**
      * @param string $class
+     *
+     * @return \Closure
      */
     private function getHydrator($class): \Closure
     {

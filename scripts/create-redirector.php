@@ -3,7 +3,7 @@
 /**
  * This file is part of the contentful/contentful-core package.
  *
- * @copyright 2015-2020 Contentful GmbH
+ * @copyright 2015-2018 Contentful GmbH
  * @license   MIT
  */
 
@@ -20,7 +20,7 @@ $tags = \array_filter($tags, function ($tag) {
 
 // We remove all non-stable versions from the list as we don't want to direct the docs to them by default
 $tags = \array_filter($tags, function ($tag) {
-    return false === \mb_strpos($tag, '-');
+    return \false === \mb_strpos($tag, '-');
 });
 
 \usort($tags, function ($a, $b) {

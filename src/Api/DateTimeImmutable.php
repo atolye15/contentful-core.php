@@ -3,13 +3,13 @@
 /**
  * This file is part of the contentful/contentful-core package.
  *
- * @copyright 2015-2020 Contentful GmbH
+ * @copyright 2015-2018 Contentful GmbH
  * @license   MIT
  */
 
 declare(strict_types=1);
 
-namespace Atolye15\Core\Api;
+namespace Contentful\Core\Api;
 
 /**
  * DateTimeImmutable class.
@@ -20,6 +20,8 @@ class DateTimeImmutable extends \DateTimeImmutable implements \JsonSerializable
 {
     /**
      * Formats the string for an easier interoperability with Contentful.
+     *
+     * @return string
      */
     public function formatForJson(): string
     {
@@ -36,6 +38,8 @@ class DateTimeImmutable extends \DateTimeImmutable implements \JsonSerializable
 
     /**
      * Returns a string representation of the current object.
+     *
+     * @return string
      */
     public function __toString(): string
     {
@@ -44,6 +48,8 @@ class DateTimeImmutable extends \DateTimeImmutable implements \JsonSerializable
 
     /**
      * Returns a JSON representation of the current object.
+     *
+     * @return string
      */
     public function jsonSerialize(): string
     {

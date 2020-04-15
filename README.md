@@ -2,8 +2,9 @@
 
 [![Packagist](https://img.shields.io/packagist/v/contentful/core.svg?style=for-the-badge)](https://packagist.org/packages/contentful/core)
 [![PHP from Packagist](https://img.shields.io/packagist/php-v/contentful/core.svg?style=for-the-badge)](https://packagist.org/packages/contentful/core)
+[![Travis](https://img.shields.io/travis/contentful/contentful-core.php.svg?style=for-the-badge)](https://travis-ci.org/contentful/contentful-core.php)
 [![Packagist](https://img.shields.io/github/license/contentful/contentful-core.php.svg?style=for-the-badge)](https://packagist.org/packages/contentful/core)
-<img height="28px" src="https://circleci.com/gh/contentful/contentful-core.php.svg?style=shield"/>
+[![Codecov](https://img.shields.io/codecov/c/github/contentful/contentful-core.php.svg?style=for-the-badge)](https://codecov.io/gh/contentful/contentful-core.php)
 
 ## What is Contentful?
 
@@ -11,7 +12,7 @@
 
 ## Requirements
 
-This package requires PHP 7.2 or above.
+This package requires PHP 7.0 or above.
 
 ## About
 
@@ -19,4 +20,4 @@ This package provides foundation components for both [Delivery SDK](https://gith
 
 ## License
 
-Copyright (c) 2015-2019 Contentful GmbH. Code released under the MIT license. See [LICENSE](LICENSE) for further details.
+Copyright (c) 2015-2018 Contentful GmbH. Code released under the MIT license. See [LICENSE](LICENSE) for further details.

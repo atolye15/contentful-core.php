@@ -3,16 +3,16 @@
 /**
  * This file is part of the contentful/contentful-core package.
  *
- * @copyright 2015-2020 Contentful GmbH
+ * @copyright 2015-2018 Contentful GmbH
  * @license   MIT
  */
 
 declare(strict_types=1);
 
-namespace Atolye15\Core\ResourceBuilder;
+namespace Contentful\Core\ResourceBuilder;
 
-use Atolye15\Core\Resource\ResourceArray;
-use Atolye15\Core\Resource\ResourceInterface;
+use Contentful\Core\Resource\ResourceArray;
+use Contentful\Core\Resource\ResourceInterface;
 
 /**
  * MapperInterface.
@@ -31,6 +31,7 @@ interface MapperInterface
      * a new instance of the appropriate class.
      *
      * @param ResourceInterface|null $resource
+     * @param array                  $data
      *
      * @return ResourceInterface|ResourceArray
      */

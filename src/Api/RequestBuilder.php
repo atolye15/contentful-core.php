@@ -3,13 +3,13 @@
 /**
  * This file is part of the contentful/contentful-core package.
  *
- * @copyright 2015-2020 Contentful GmbH
+ * @copyright 2015-2018 Contentful GmbH
  * @license   MIT
  */
 
 declare(strict_types=1);
 
-namespace Atolye15\Core\Api;
+namespace Contentful\Core\Api;
 
 use GuzzleHttp\Psr7\Request;
 use GuzzleHttp\Psr7\Uri;
@@ -44,6 +44,12 @@ class RequestBuilder
      */
     private $userAgentGenerator;
 
+    /**
+     * @param string             $accessToken
+     * @param string             $host
+     * @param string             $apiContentType
+     * @param UserAgentGenerator $userAgentGenerator
+     */
     public function __construct(
         string $accessToken,
         string $host,
@@ -56,13 +62,20 @@ class RequestBuilder
         $this->apiContentType = $apiContentType;
     }
 
+    /**
+     * @param string $method
+     * @param string $path
+     * @param array  $options
+     *
+     * @return RequestInterface
+     */
     public function build(string $method, string $path, array $options): RequestInterface
     {
-        $body = $options['body'] ?? null;
+        $body = $options['body'] ?? \null;
 
         $uri = $this->getUri(
             $path,
-            $options['host'] ?? null,
+            $options['host'] ?? \null,
             $options['query'] ?? []
         );
 
@@ -75,9 +88,13 @@ class RequestBuilder
     }
 
     /**
-     * @param string[] $query
+     * @param string      $path
+     * @param string|null $host
+     * @param string[]    $query
+     *
+     * @return UriInterface
      */
-    private function getUri(string $path, string $host = null, array $query = []): UriInterface
+    private function getUri(string $path, string $host = \null, array $query = []): UriInterface
     {
         $host = $host ? new Uri($host) : $this->host;
         $uri = UriResolver::resolve($host, new Uri($path));

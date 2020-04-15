@@ -3,20 +3,23 @@
 /**
  * This file is part of the contentful/contentful-core package.
  *
- * @copyright 2015-2020 Contentful GmbH
+ * @copyright 2015-2018 Contentful GmbH
  * @license   MIT
  */
 
 declare(strict_types=1);
 
-namespace Atolye15\Core\Api;
+namespace Contentful\Core\Api;
 
-use Atolye15\Core\Resource\ResourceInterface;
+use Contentful\Core\Resource\ResourceInterface;
 
 interface LinkResolverInterface
 {
     /**
+     * @param Link     $link
      * @param string[] $parameters
+     *
+     * @return ResourceInterface
      */
     public function resolveLink(Link $link, array $parameters = []): ResourceInterface;
 
@@ -26,10 +29,10 @@ interface LinkResolverInterface
      * to reduce the amount of necessary API calls, or simply forward this
      * to the "resolveLink" method.
      *
-     * @param Link[]   $links
-     * @param string[] $parameters
+     * @param Link[]      $links
+     * @param string|null $locale
      *
      * @return ResourceInterface[]
      */
-    public function resolveLinkCollection(array $links, array $parameters = []): array;
+    public function resolveLinkCollection(array $links, string $locale = \null): array;
 }

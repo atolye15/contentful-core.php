@@ -3,15 +3,15 @@
 /**
  * This file is part of the contentful/contentful-core package.
  *
- * @copyright 2015-2020 Contentful GmbH
+ * @copyright 2015-2018 Contentful GmbH
  * @license   MIT
  */
 
 declare(strict_types=1);
 
-namespace Atolye15\Core\ResourceBuilder;
+namespace Contentful\Core\ResourceBuilder;
 
-use Atolye15\Core\Resource\ResourceInterface;
+use Contentful\Core\Resource\ResourceInterface;
 
 /**
  * BaseResourceBuilder class.
@@ -107,7 +107,10 @@ abstract class BaseResourceBuilder implements ResourceBuilderInterface
             }
 
             if (!\class_exists($matchedFqcn, \true)) {
-                throw new \RuntimeException(\sprintf('Mapper class "%s" does not exist.', $matchedFqcn));
+                throw new \RuntimeException(\sprintf(
+                    'Mapper class "%s" does not exist.',
+                    $matchedFqcn
+                ));
             }
 
             return $matchedFqcn;

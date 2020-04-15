@@ -1,8 +1,0 @@
-{
-    "sys": {
-        "type": "Error",
-        "id": "BadRequest"
-    },
-    "message": "Unknown locale: invalidLocale",
-    "requestId": "d533d76293f8bb047467344a28beffe0"
-}

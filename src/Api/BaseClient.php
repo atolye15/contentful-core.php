@@ -3,20 +3,20 @@
 /**
  * This file is part of the contentful/contentful-core package.
  *
- * @copyright 2015-2019 Contentful GmbH
+ * @copyright 2015-2018 Contentful GmbH
  * @license   MIT
  */
 
 declare(strict_types=1);
 
-namespace Atolye15\Core\Api;
+namespace Contentful\Core\Api;
 
-use Atolye15\Core\Log\NullLogger;
+use Contentful\Core\Log\NullLogger;
 use GuzzleHttp\Client as HttpClient;
-use function GuzzleHttp\json_decode as guzzle_json_decode;
 use Jean85\PrettyVersions;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Log\LoggerInterface;
+use function GuzzleHttp\json_decode as guzzle_json_decode;
 
 /**
  * Abstract client for common code for the different clients.
@@ -49,14 +49,14 @@ abstract class BaseClient implements ClientInterface
     private $requestBuilder;
 
     /**
-     * @var string
-     */
-    protected $cacheKeyPrefix;
-
-    /**
      * @var Message[]
      */
     private $messages = [];
+
+    /**
+     * @var string
+     */
+    protected $cacheKeyPrefix;
 
     /**
      * Client constructor.
@@ -69,8 +69,8 @@ abstract class BaseClient implements ClientInterface
     public function __construct(
         string $accessToken,
         string $host,
-        LoggerInterface $logger = null,
-        HttpClient $httpClient = null
+        LoggerInterface $logger = \null,
+        HttpClient $httpClient = \null
     ) {
         $this->logger = $logger ?: new NullLogger();
         $this->requester = new Requester(
@@ -118,7 +118,7 @@ abstract class BaseClient implements ClientInterface
         $this->logMessage($message);
 
         $exception = $message->getException();
-        if (null !== $exception) {
+        if (\null !== $exception) {
             throw $exception;
         }
 
@@ -156,14 +156,14 @@ abstract class BaseClient implements ClientInterface
      *
      * @return array
      */
-    private function parseResponse(ResponseInterface $response = null): array
+    private function parseResponse(ResponseInterface $response = \null): array
     {
         $body = $response
             ? (string) $response->getBody()
-            : null;
+            : \null;
 
         return $body
-            ? guzzle_json_decode($body, true)
+            ? guzzle_json_decode($body, \true)
             : [];
     }
 
@@ -176,7 +176,7 @@ abstract class BaseClient implements ClientInterface
      */
     protected function getExceptionNamespace()
     {
-        return null;
+        return \null;
     }
 
     /**
@@ -209,37 +209,11 @@ abstract class BaseClient implements ClientInterface
     /**
      * {@inheritdoc}
      */
-    public function useApplication(ApplicationInterface $application)
-    {
-        $version = $application->isPackagedApplication()
-            ? self::getVersionForPackage($application->getApplicationPackageName())
-            : $application->getApplicationVersion();
-
-        $this->userAgentGenerator->setApplication(
-            $application->getApplicationName(),
-            $version
-        );
-    }
-
-    /**
-     * {@inheritdoc}
-     */
     public function setApplication(string $name, string $version = '')
     {
         $this->userAgentGenerator->setApplication($name, $version);
 
         return $this;
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function useIntegration(IntegrationInterface $integration)
-    {
-        $this->userAgentGenerator->setIntegration(
-            $integration->getIntegrationName(),
-            self::getVersionForPackage($integration->getIntegrationPackageName())
-        );
     }
 
     /**
@@ -257,18 +231,8 @@ abstract class BaseClient implements ClientInterface
      */
     public static function getVersion(): string
     {
-        return self::getVersionForPackage(static::getPackageName());
-    }
-
-    /**
-     * @param string $package
-     *
-     * @return string
-     */
-    protected static function getVersionForPackage(string $package): string
-    {
         try {
-            $shortVersion = PrettyVersions::getVersion($package)
+            $shortVersion = PrettyVersions::getVersion(static::getPackageName())
                 ->getShortVersion()
             ;
 
@@ -281,6 +245,18 @@ abstract class BaseClient implements ClientInterface
         } catch (\OutOfBoundsException $exception) {
             return '0.0.0-alpha';
         }
+    }
+
+    public function setCacheKeyPrefix(string $cacheKeyPrefix): self
+    {
+        $this->cacheKeyPrefix = $cacheKeyPrefix;
+
+        return $this;
+    }
+
+    public function getCacheKeyPrefix(): string
+    {
+        return $this->cacheKeyPrefix;
     }
 
     /**
@@ -303,9 +279,4 @@ abstract class BaseClient implements ClientInterface
      * @return string
      */
     abstract protected static function getApiContentType(): string;
-
-    public function getCacheKeyPrefix(): string
-    {
-        return $this->cacheKeyPrefix;
-    }
 }
