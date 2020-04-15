@@ -9,9 +9,9 @@
 
 declare(strict_types=1);
 
-namespace Contentful\Core\Api;
+namespace Atolye15\Core\Api;
 
-use Contentful\Core\Log\NullLogger;
+use Atolye15\Core\Log\NullLogger;
 use GuzzleHttp\Client as HttpClient;
 use Jean85\PrettyVersions;
 use Psr\Http\Message\ResponseInterface;
