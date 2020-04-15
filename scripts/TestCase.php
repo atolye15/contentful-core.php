@@ -3,18 +3,18 @@
 /**
  * This file is part of the contentful/contentful-core package.
  *
- * @copyright 2015-2020 Contentful GmbH
+ * @copyright 2015-2018 Contentful GmbH
  * @license   MIT
  */
 
 declare(strict_types=1);
 
-namespace Atolye15\Tests;
+namespace Contentful\Tests;
 
-use Atolye15\Core\Api\Link;
+use Contentful\Core\Api\Link;
+use PHPUnit\Framework\TestCase as BaseTestCase;
 use function GuzzleHttp\json_decode as guzzle_json_decode;
 use function GuzzleHttp\json_encode as guzzle_json_encode;
-use PHPUnit\Framework\TestCase as BaseTestCase;
 
 class TestCase extends BaseTestCase
 {
@@ -35,7 +35,10 @@ class TestCase extends BaseTestCase
     }
 
     /**
-     * Asserts that a Link object has a certain ID and type.
+     * @param string $id
+     * @param string $linkType
+     * @param Link   $link
+     * @param string $message
      */
     protected function assertLink(string $id, string $linkType, Link $link, string $message = '')
     {
@@ -44,9 +47,9 @@ class TestCase extends BaseTestCase
     }
 
     /**
-     * Asserts that the JSON serialization of a certain object equals to the given fixture (as file path).
-     *
+     * @param string $file
      * @param object $object
+     * @param string $message
      */
     protected function assertJsonFixtureEqualsJsonObject(string $file, $object, string $message = '')
     {
@@ -56,7 +59,9 @@ class TestCase extends BaseTestCase
     }
 
     /**
-     * Asserts that the given JSON equals to the given fixture (as file path).
+     * @param string $file
+     * @param string $string
+     * @param string $message
      */
     protected function assertJsonFixtureEqualsJsonString(string $file, string $string, string $message = '')
     {
@@ -66,20 +71,10 @@ class TestCase extends BaseTestCase
     }
 
     /**
-     * Asserts that any two variables will be serialized to the same JSON structure.
+     * @param string $file
      *
-     * @param $expected
-     * @param $object
+     * @return string
      */
-    protected function assertJsonStructuresAreEqual($expected, $object, string $message = '')
-    {
-        $this->assertJsonStringEqualsJsonString(
-            guzzle_json_encode($expected, \JSON_UNESCAPED_UNICODE | \JSON_PRETTY_PRINT),
-            guzzle_json_encode($object, \JSON_UNESCAPED_UNICODE | \JSON_PRETTY_PRINT),
-            $message
-        );
-    }
-
     protected function getFixtureContent(string $file): string
     {
         $dir = $this->convertClassToFixturePath(\debug_backtrace()[1]['class']);
@@ -88,6 +83,8 @@ class TestCase extends BaseTestCase
     }
 
     /**
+     * @param string $file
+     *
      * @return array|null
      */
     protected function getParsedFixture(string $file)
@@ -97,18 +94,17 @@ class TestCase extends BaseTestCase
         return guzzle_json_decode(\file_get_contents($dir.'/'.$file), \true);
     }
 
-    protected function getTestFixturesPath(): string
-    {
-        return $this->convertClassToFixturePath(\debug_backtrace()[1]['class']);
-    }
-
     /**
      * This automatically determines where to store the fixture according to the test name.
      * For instance, it will convert a the class
      * Contentful\Tests\Core\Unit\Api\BaseClient
      * to 'tests/Fixtures/Unit/Api/BaseClient/'.$file.
+     *
+     * @param string $class
+     *
+     * @return string
      */
-    protected function convertClassToFixturePath(string $class): string
+    private function convertClassToFixturePath(string $class): string
     {
         if (isset(self::$classMap[$class])) {
             return self::$classMap[$class];

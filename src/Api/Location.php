@@ -3,13 +3,13 @@
 /**
  * This file is part of the contentful/contentful-core package.
  *
- * @copyright 2015-2020 Contentful GmbH
+ * @copyright 2015-2018 Contentful GmbH
  * @license   MIT
  */
 
 declare(strict_types=1);
 
-namespace Atolye15\Core\Api;
+namespace Contentful\Core\Api;
 
 /**
  * The Location class encodes a geographic Location based on latitude and longitude.
@@ -26,6 +26,10 @@ class Location implements \JsonSerializable
      */
     private $longitude;
 
+    /**
+     * @param float $latitude
+     * @param float $longitude
+     */
     public function __construct(float $latitude, float $longitude)
     {
         $this->latitude = $latitude;
@@ -34,6 +38,8 @@ class Location implements \JsonSerializable
 
     /**
      * Returns the latitude.
+     *
+     * @return float
      */
     public function getLatitude(): float
     {
@@ -42,6 +48,8 @@ class Location implements \JsonSerializable
 
     /**
      * Returns the longitude.
+     *
+     * @return float
      */
     public function getLongitude(): float
     {

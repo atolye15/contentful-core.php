@@ -3,19 +3,18 @@
 /**
  * This file is part of the contentful/contentful-core package.
  *
- * @copyright 2015-2020 Contentful GmbH
+ * @copyright 2015-2018 Contentful GmbH
  * @license   MIT
  */
 
 declare(strict_types=1);
 
-namespace Atolye15\Core\Api;
+namespace Contentful\Core\Api;
 
 use GuzzleHttp\Client as HttpClient;
 use GuzzleHttp\Exception\ClientException;
-use function GuzzleHttp\json_decode as guzzle_json_decode;
-use InvalidArgumentException;
 use Psr\Http\Message\RequestInterface;
+use function GuzzleHttp\json_decode as guzzle_json_decode;
 
 class Requester
 {
@@ -36,8 +35,12 @@ class Requester
 
     /**
      * ApiRequester constructor.
+     *
+     * @param HttpClient  $client
+     * @param string      $api
+     * @param string|null $exceptionNamespace
      */
-    public function __construct(HttpClient $client, string $api, string $exceptionNamespace = null)
+    public function __construct(HttpClient $client, string $api, string $exceptionNamespace = \null)
     {
         $this->httpClient = $client;
         $this->api = $api;
@@ -47,23 +50,27 @@ class Requester
     /**
      * Queries the API, and returns a message object
      * which contains all information needed for processing and logging.
+     *
+     * @param RequestInterface $request
+     *
+     * @return Message
      */
     public function sendRequest(RequestInterface $request): Message
     {
-        $startTime = \microtime(true);
+        $startTime = \microtime(\true);
 
-        $exception = null;
+        $exception = \null;
         try {
             $response = $this->httpClient->send($request);
         } catch (ClientException $exception) {
             $response = $exception->hasResponse()
                 ? $exception->getResponse()
-                : null;
+                : \null;
 
             $exception = $this->createCustomException($exception);
         }
 
-        $duration = \microtime(true) - $startTime;
+        $duration = \microtime(\true) - $startTime;
 
         return new Message(
             $this->api,
@@ -77,18 +84,18 @@ class Requester
     /**
      * Attempts to create a custom exception.
      * It will return a default exception if no suitable class is found.
+     *
+     * @param ClientException $exception
+     *
+     * @return Exception
      */
     private function createCustomException(ClientException $exception): Exception
     {
         $errorId = '';
         $response = $exception->getResponse();
         if ($response) {
-            try {
-                $data = guzzle_json_decode((string) $response->getBody(), true);
-                $errorId = (string) $data['sys']['id'] ?? '';
-            } catch (InvalidArgumentException $invalidArgumentException) {
-                $errorId = 'InvalidResponseBody';
-            }
+            $data = guzzle_json_decode((string) $response->getBody(), \true);
+            $errorId = (string) $data['sys']['id'] ?? '';
         }
 
         $exceptionClass = $this->getExceptionClass($errorId);
@@ -98,6 +105,10 @@ class Requester
 
     /**
      * Returns the FQCN of an exception class to be used for the given API error.
+     *
+     * @param string $apiError
+     *
+     * @return string
      */
     private function getExceptionClass(string $apiError): string
     {

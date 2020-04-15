@@ -3,13 +3,13 @@
 /**
  * This file is part of the contentful/contentful-core package.
  *
- * @copyright 2015-2020 Contentful GmbH
+ * @copyright 2015-2018 Contentful GmbH
  * @license   MIT
  */
 
 declare(strict_types=1);
 
-namespace Atolye15\Core\Resource;
+namespace Contentful\Core\Resource;
 
 abstract class BaseResourcePool implements ResourcePoolInterface
 {
@@ -20,14 +20,15 @@ abstract class BaseResourcePool implements ResourcePoolInterface
 
     /**
      * Sanitizes potentially problematic characters for resource keys.
+     *
+     * @param string $value
+     *
+     * @return string
      */
     protected function sanitize(string $value): string
     {
-        return \strtr($value, [
-            '.' => '___46___',
-            '-' => '___45___',
-            '_' => '___95___',
-            '*' => '___42___',
-        ]);
+        return \preg_replace_callback('/[\.\-\_\*]/', function (array $matches): string {
+            return '___'.\ord($matches[0]).'___';
+        }, $value);
     }
 }

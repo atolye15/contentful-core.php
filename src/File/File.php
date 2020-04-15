@@ -3,13 +3,13 @@
 /**
  * This file is part of the contentful/contentful-core package.
  *
- * @copyright 2015-2020 Contentful GmbH
+ * @copyright 2015-2018 Contentful GmbH
  * @license   MIT
  */
 
 declare(strict_types=1);
 
-namespace Atolye15\Core\File;
+namespace Contentful\Core\File;
 
 /**
  * File class.
@@ -39,7 +39,10 @@ class File implements ProcessedFileInterface
     /**
      * File constructor.
      *
-     * @param int $size Size in bytes
+     * @param string $fileName
+     * @param string $contentType
+     * @param string $url
+     * @param int    $size        Size in bytes
      */
     public function __construct(string $fileName, string $contentType, string $url, int $size)
     {
@@ -75,6 +78,8 @@ class File implements ProcessedFileInterface
 
     /**
      * The size in bytes of this file.
+     *
+     * @return int
      */
     public function getSize(): int
     {

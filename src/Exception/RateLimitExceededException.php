@@ -3,15 +3,15 @@
 /**
  * This file is part of the contentful/contentful-core package.
  *
- * @copyright 2015-2020 Contentful GmbH
+ * @copyright 2015-2018 Contentful GmbH
  * @license   MIT
  */
 
 declare(strict_types=1);
 
-namespace Atolye15\Core\Exception;
+namespace Contentful\Core\Exception;
 
-use Atolye15\Core\Api\Exception;
+use Contentful\Core\Api\Exception;
 use GuzzleHttp\Exception\RequestException;
 
 /**
@@ -29,6 +29,9 @@ class RateLimitExceededException extends Exception
 
     /**
      * RateLimitExceededException constructor.
+     *
+     * @param RequestException $previous
+     * @param string           $message
      */
     public function __construct(RequestException $previous, string $message = '')
     {

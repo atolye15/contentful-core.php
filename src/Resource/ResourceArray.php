@@ -3,15 +3,15 @@
 /**
  * This file is part of the contentful/contentful-core package.
  *
- * @copyright 2015-2020 Contentful GmbH
+ * @copyright 2015-2018 Contentful GmbH
  * @license   MIT
  */
 
 declare(strict_types=1);
 
-namespace Atolye15\Core\Resource;
+namespace Contentful\Core\Resource;
 
-use Atolye15\Core\Api\Link;
+use Contentful\Core\Api\Link;
 
 /**
  * A ResourceArray holds the response of an API request
@@ -44,6 +44,11 @@ class ResourceArray implements ResourceInterface, \Countable, \ArrayAccess, \Ite
 
     /**
      * ResourceArray constructor.
+     *
+     * @param array $items
+     * @param int   $total
+     * @param int   $limit
+     * @param int   $skip
      */
     public function __construct(array $items, int $total, int $limit, int $skip)
     {
@@ -55,6 +60,8 @@ class ResourceArray implements ResourceInterface, \Countable, \ArrayAccess, \Ite
 
     /**
      * Returns the total amount of resources matching the filter.
+     *
+     * @return int
      */
     public function getTotal(): int
     {
@@ -63,6 +70,8 @@ class ResourceArray implements ResourceInterface, \Countable, \ArrayAccess, \Ite
 
     /**
      * The limit used when retrieving this ResourceArray.
+     *
+     * @return int
      */
     public function getLimit(): int
     {
@@ -71,6 +80,8 @@ class ResourceArray implements ResourceInterface, \Countable, \ArrayAccess, \Ite
 
     /**
      * The number of skipped resources when retrieving this  ResourceArray.
+     *
+     * @return int
      */
     public function getSkip(): int
     {
@@ -172,7 +183,10 @@ class ResourceArray implements ResourceInterface, \Countable, \ArrayAccess, \Ite
      */
     public function offsetSet($offset, $value)
     {
-        throw new \BadMethodCallException(\sprintf('"%s" is read-only.', __CLASS__));
+        throw new \BadMethodCallException(\sprintf(
+            '"%s" is read-only.',
+            __CLASS__
+        ));
     }
 
     /**
@@ -180,6 +194,9 @@ class ResourceArray implements ResourceInterface, \Countable, \ArrayAccess, \Ite
      */
     public function offsetUnset($offset)
     {
-        throw new \BadMethodCallException(\sprintf('"%s" is read-only.', __CLASS__));
+        throw new \BadMethodCallException(\sprintf(
+            '"%s" is read-only.',
+            __CLASS__
+        ));
     }
 }

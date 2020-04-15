@@ -3,21 +3,21 @@
 /**
  * This file is part of the contentful/contentful-core package.
  *
- * @copyright 2015-2020 Contentful GmbH
+ * @copyright 2015-2018 Contentful GmbH
  * @license   MIT
  */
 
 declare(strict_types=1);
 
-namespace Atolye15\Core\Api;
+namespace Contentful\Core\Api;
 
 use GuzzleHttp\Exception\RequestException;
+use Psr\Http\Message\RequestInterface;
+use Psr\Http\Message\ResponseInterface;
 use function GuzzleHttp\json_decode as guzzle_json_decode;
 use function GuzzleHttp\Psr7\parse_request as guzzle_parse_request;
 use function GuzzleHttp\Psr7\parse_response as guzzle_parse_response;
 use function GuzzleHttp\Psr7\str as guzzle_stringify_message;
-use Psr\Http\Message\RequestInterface;
-use Psr\Http\Message\ResponseInterface;
 
 /**
  * An Exception is thrown when an errors occurs while communicating with the API.
@@ -46,6 +46,9 @@ class Exception extends \RuntimeException implements \Serializable
 
     /**
      * Exception constructor.
+     *
+     * @param RequestException $previous
+     * @param string           $message
      */
     public function __construct(RequestException $previous, string $message = '')
     {
@@ -76,7 +79,7 @@ class Exception extends \RuntimeException implements \Serializable
             'line' => $this->line,
             'requestId' => $this->requestId,
             'request' => guzzle_stringify_message($this->request),
-            'response' => $this->response ? guzzle_stringify_message($this->response) : null,
+            'response' => $this->response ? guzzle_stringify_message($this->response) : \null,
         ]);
     }
 
@@ -93,19 +96,25 @@ class Exception extends \RuntimeException implements \Serializable
         $this->line = $data['line'];
         $this->requestId = $data['requestId'];
         $this->request = guzzle_parse_request($data['request']);
-        $this->response = $data['response'] ? guzzle_parse_response($data['response']) : null;
+        $this->response = $data['response'] ? guzzle_parse_response($data['response']) : \null;
     }
 
+    /**
+     * @param RequestException       $previous
+     * @param ResponseInterface|null $response
+     *
+     * @return string
+     */
     private static function createExceptionMessage(
         RequestException $previous,
-        ResponseInterface $response = null
+        ResponseInterface $response = \null
     ): string {
         if (!$response) {
             return $previous->getMessage();
         }
 
         try {
-            $result = guzzle_json_decode((string) $response->getBody(), true);
+            $result = guzzle_json_decode((string) $response->getBody(), \true);
             if (isset($result['message'])) {
                 return $result['message'];
             }
@@ -118,6 +127,8 @@ class Exception extends \RuntimeException implements \Serializable
 
     /**
      * Get the request that caused the exception.
+     *
+     * @return RequestInterface
      */
     public function getRequest(): RequestInterface
     {
@@ -136,10 +147,12 @@ class Exception extends \RuntimeException implements \Serializable
 
     /**
      * Check if a response was received.
+     *
+     * @return bool
      */
     public function hasResponse(): bool
     {
-        return null !== $this->response;
+        return \null !== $this->response;
     }
 
     /**

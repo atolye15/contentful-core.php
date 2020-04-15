@@ -3,15 +3,15 @@
 /**
  * This file is part of the contentful/contentful-core package.
  *
- * @copyright 2015-2020 Contentful GmbH
+ * @copyright 2015-2018 Contentful GmbH
  * @license   MIT
  */
 
 declare(strict_types=1);
 
-namespace Atolye15\Core\Api;
+namespace Contentful\Core\Api;
 
-use Atolye15\Core\Resource\ResourceInterface;
+use Contentful\Core\Resource\ResourceInterface;
 
 interface ClientInterface
 {
@@ -27,39 +27,33 @@ interface ClientInterface
      *                        * host    A string that can be used to override the default client base URI
      *
      * @throws \RuntimeException
+     *
+     * @return ResourceInterface
      */
     public function request(string $method, string $uri, array $options = []): ResourceInterface;
-
-    /**
-     * Sets the current application.
-     * The values are used as part of the X-Contentful-User-Agent header.
-     */
-    public function useApplication(ApplicationInterface $application);
 
     /**
      * Set the application name and version.
      * The values are used as part of the X-Contentful-User-Agent header.
      *
-     * @deprecated 2.2.0 Use useApplication instead
+     * @param string $name
+     * @param string $version
      */
     public function setApplication(string $name, string $version = '');
-
-    /**
-     * Sets the current integration.
-     * The values are used as part of the X-Contentful-User-Agent header.
-     */
-    public function useIntegration(IntegrationInterface $integration);
 
     /**
      * Set the integration name and version.
      * The values are used as part of the X-Contentful-User-Agent header.
      *
-     * @deprecated 2.2.0 Use useIntegration instead
+     * @param string $name
+     * @param string $version
      */
     public function setIntegration(string $name, string $version = '');
 
     /**
      * Returns a string representation of the API currently in use.
+     *
+     * @return string
      */
     public function getApi(): string;
 }

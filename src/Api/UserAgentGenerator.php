@@ -3,13 +3,13 @@
 /**
  * This file is part of the contentful/contentful-core package.
  *
- * @copyright 2015-2020 Contentful GmbH
+ * @copyright 2015-2018 Contentful GmbH
  * @license   MIT
  */
 
 declare(strict_types=1);
 
-namespace Atolye15\Core\Api;
+namespace Contentful\Core\Api;
 
 /**
  * UserAgentGenerator class.
@@ -42,6 +42,9 @@ class UserAgentGenerator
 
     /**
      * UserAgentGenerator constructor.
+     *
+     * @param string $name
+     * @param string $version
      */
     public function __construct(string $name, string $version)
     {
@@ -52,6 +55,9 @@ class UserAgentGenerator
      * Set the application name and version.
      * The values are used as part of the X-Contentful-User-Agent header.
      *
+     * @param string $name
+     * @param string $version
+     *
      * @return $this
      */
     public function setApplication(string $name, string $version = '')
@@ -59,7 +65,7 @@ class UserAgentGenerator
         $this->application = $name.($version ? '/'.$version : '');
 
         // Reset the cached value
-        $this->cachedUserAgent = null;
+        $this->cachedUserAgent = \null;
 
         return $this;
     }
@@ -68,6 +74,9 @@ class UserAgentGenerator
      * Set the application name and version.
      * The values are used as part of the X-Contentful-User-Agent header.
      *
+     * @param string $name
+     * @param string $version
+     *
      * @return $this
      */
     public function setIntegration(string $name, string $version = '')
@@ -75,11 +84,14 @@ class UserAgentGenerator
         $this->integration = $name.($version ? '/'.$version : '');
 
         // Reset the cached value
-        $this->cachedUserAgent = null;
+        $this->cachedUserAgent = \null;
 
         return $this;
     }
 
+    /**
+     * @return string
+     */
     private function generate(): string
     {
         $possibleOS = [
@@ -110,10 +122,12 @@ class UserAgentGenerator
 
     /**
      * Returns the value of the User-Agent header for any requests made to Contentful.
+     *
+     * @return string
      */
     public function getUserAgent(): string
     {
-        if (null === $this->cachedUserAgent) {
+        if (\null === $this->cachedUserAgent) {
             $this->cachedUserAgent = $this->generate();
         }
 
